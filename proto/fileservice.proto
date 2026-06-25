@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package fileservice;
+
+option go_package = "file-service/proto";
+
+service FileService {
+  rpc CompressImage(ImageRequest) returns (ImageResponse);
+  rpc CompressPDF(PDFRequest) returns (PDFResponse);
+  rpc RepairPDF(PDFRequest) returns (PDFResponse);
+  rpc GetFileStats(FileRequest) returns (FileStats);
+}
+
+message ImageRequest {
+  bytes file_data = 1;
+  string mime_type = 2;
+  int32 quality = 3;
+}
+
+message ImageResponse {
+  bytes compressed_data = 1;
+  string status = 2;
+  string error_message = 3;
+  int64 original_size = 4;
+  int64 compressed_size = 5;
+  float compression_ratio = 6;
+}
+
+message PDFRequest {
+  bytes file_data = 1;
+  string operation = 2;
+  bool preserve_quality = 3;
+}
+
+message PDFResponse {
+  bytes processed_data = 1;
+  string status = 2;
+  string error_message = 3;
+  int64 original_size = 4;
+  int64 compressed_size = 5;
+  float compression_ratio = 6;
+  bool was_corrupted = 7;
+  bool was_repaired = 8;
+}
+
+message FileRequest {
+  bytes file_data = 1;
+}
+
+message FileStats {
+  int64 original_size = 1;
+  int32 page_count = 2;
+  string file_type = 3;
+  bool is_valid = 4;
+}
