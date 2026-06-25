@@ -1,0 +1,92 @@
+{
+  "apps": [
+    {
+      "name": "file-service-1",
+      "script": "./file-service-server",
+      "instances": 1,
+      "exec_mode": "fork",
+      "watch": false,
+      "ignore_watch": ["logs"],
+      "autorestart": true,
+      "max_memory_restart": "2G",
+      "env": {
+        "FILE_SERVICE_PORT": "50052",
+        "LOG_LEVEL": "info"
+      },
+      "error_file": "logs/error-1.log",
+      "out_file": "logs/out-1.log",
+      "log_date_format": "YYYY-MM-DD HH:mm:ss Z",
+      "merge_logs": false,
+      "min_uptime": "10s",
+      "max_restarts": 10,
+      "listen_timeout": 3000,
+      "kill_timeout": 5000
+    },
+    {
+      "name": "file-service-2",
+      "script": "./file-service-server",
+      "instances": 1,
+      "exec_mode": "fork",
+      "watch": false,
+      "ignore_watch": ["logs"],
+      "autorestart": true,
+      "max_memory_restart": "2G",
+      "env": {
+        "FILE_SERVICE_PORT": "50053",
+        "LOG_LEVEL": "info"
+      },
+      "error_file": "logs/error-2.log",
+      "out_file": "logs/out-2.log",
+      "log_date_format": "YYYY-MM-DD HH:mm:ss Z",
+      "merge_logs": false,
+      "min_uptime": "10s",
+      "max_restarts": 10,
+      "listen_timeout": 3000,
+      "kill_timeout": 5000
+    },
+    {
+      "name": "file-service-3",
+      "script": "./file-service-server",
+      "instances": 1,
+      "exec_mode": "fork",
+      "watch": false,
+      "ignore_watch": ["logs"],
+      "autorestart": true,
+      "max_memory_restart": "2G",
+      "env": {
+        "FILE_SERVICE_PORT": "50054",
+        "LOG_LEVEL": "info"
+      },
+      "error_file": "logs/error-3.log",
+      "out_file": "logs/out-3.log",
+      "log_date_format": "YYYY-MM-DD HH:mm:ss Z",
+      "merge_logs": false,
+      "min_uptime": "10s",
+      "max_restarts": 10,
+      "listen_timeout": 3000,
+      "kill_timeout": 5000
+    },
+    {
+      "name": "file-service-4",
+      "script": "./file-service-server",
+      "instances": 1,
+      "exec_mode": "fork",
+      "watch": false,
+      "ignore_watch": ["logs"],
+      "autorestart": true,
+      "max_memory_restart": "2G",
+      "env": {
+        "FILE_SERVICE_PORT": "50055",
+        "LOG_LEVEL": "info"
+      },
+      "error_file": "logs/error-4.log",
+      "out_file": "logs/out-4.log",
+      "log_date_format": "YYYY-MM-DD HH:mm:ss Z",
+      "merge_logs": false,
+      "min_uptime": "10s",
+      "max_restarts": 10,
+      "listen_timeout": 3000,
+      "kill_timeout": 5000
+    }
+  ]
+}
