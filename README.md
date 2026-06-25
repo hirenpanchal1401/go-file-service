@@ -15,8 +15,13 @@ High-performance gRPC microservice for compressing and repairing PDF and image f
 
 ### Option 1: Automated Setup (Recommended)
 
+**Note:** If you're on Ubuntu/Debian and protoc is v3.0.0, upgrade it first:
+
 ```bash
-cd /home/hiren/packleader/code/go-file-service
+# Download and install latest protoc (one-time)
+./install-protoc.sh
+
+# Then run setup
 chmod +x setup.sh
 ./setup.sh
 ```
@@ -232,6 +237,21 @@ Typical compression ratios on 4-core machine:
 | Image (PNG) | < 2MB | 5-15% | 50-100ms |
 
 ## Troubleshooting
+
+### "Unknown flag: --go_opt" during setup
+This means protoc is too old (< 3.12). Ubuntu's default package is v3.0.0.
+
+**Fix:**
+```bash
+# Upgrade protoc to latest version
+./install-protoc.sh
+
+# Verify
+protoc --version  # Should show 3.12 or higher
+
+# Retry setup
+./setup.sh
+```
 
 ### "Connection refused" on port 50051
 ```bash
