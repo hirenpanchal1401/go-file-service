@@ -67,6 +67,9 @@ if [ ! -d "proto" ]; then
     exit 1
 fi
 
+# Add Go bin to PATH for protoc plugins
+export PATH="$HOME/go/bin:$PATH"
+
 protoc --go_out=. --go-grpc_out=. \
   --go_opt=module=file-service --go-grpc_opt=module=file-service \
   proto/fileservice.proto
